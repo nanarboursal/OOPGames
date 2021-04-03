@@ -64,11 +64,11 @@ public class GamePlay extends JPanel implements ActionListener, KeyListener{
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-//			if(playerX <=0) {
-//				playerX = 0;
-//			}else {	
-//				moveLeft();
-//			}
+		if(playerX <=0) {
+				playerX = 0;
+			}else {	
+				moveLeft();
+			}
 			moveLeft();
 		} 
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
