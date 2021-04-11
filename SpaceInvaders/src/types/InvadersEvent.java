@@ -7,9 +7,10 @@ import java.util.HashMap;
  */
 public class InvadersEvent {
 	/**
-	 * Event type, e.g. "newGame", "keyUp".
+	 * Event type
 	 */
 	public String type;
+	
 	/**
 	 * Event's payload, containing additional information for controller/event handler
 	 */
@@ -17,7 +18,7 @@ public class InvadersEvent {
 
 	/**
 	 * Constructor of InvadersEvent class.
-	 * @param type type of the event.
+	 * @param type of the event.
 	 */
 	public InvadersEvent(String type) {
 		this.type = type;
