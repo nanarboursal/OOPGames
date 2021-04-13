@@ -24,6 +24,7 @@ import java.util.Random;
 
 public class Board extends JPanel {
 
+	//variables
     private Dimension d;
     private List<Alien> aliens;
     private Player player;
