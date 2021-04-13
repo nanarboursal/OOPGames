@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Starts basic classes for snakegame
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>SnakeGame</name>
@@ -16,6 +19,7 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
 </projectDescription>
+<<<<<<< HEAD
 =======
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
@@ -34,4 +38,6 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
 </projectDescription>
+>>>>>>> Starts basic classes for snakegame
+=======
 >>>>>>> Starts basic classes for snakegame
