@@ -19,6 +19,7 @@ public class WindowGame {
 		
 		board = new Board();
 		window.add(board);
+		window.addKeyListener(board);
 		window.setVisible(true);
 	}
 
