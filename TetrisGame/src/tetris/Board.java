@@ -17,45 +17,56 @@ public class Board extends JPanel implements KeyListener {
 
 	public static final int BOARD_WIDTH = 10, BOARD_HEIGHT = 20, BLOCK_SIZE = 30;
 	private Timer looper;
-	private Color[][] board = new Color[BOARD_WIDTH][BOARD_HEIGHT];
+	private Color[][] board = new Color[BOARD_HEIGHT][BOARD_WIDTH];
 
-	private Color[][] shape = { { Color.red, Color.red, Color.red }, { null, Color.red, null } };
-
-	private int x = 4, y = 0; // initial spots of the shape
-
-	private int normal = 600;
-	private int fast = 50;
-	private int delayTimeForMovement = normal;
-	private long beginTime;
-
-	private int deltaX = 0;
-	private boolean collision = false;
+	private Shape[] shapes = new Shape[7];
+	private Color[] colors = { Color.decode("#ed1c24"), Color.decode("#ff7f27"), Color.decode("#fff200"),
+			Color.decode("#22b14c"), Color.decode("#00a2e8"), Color.decode("#a349a4"), Color.decode("#3f48cc") };
+	
+	private Shape currentShape;
 
 	public Board() {
+
+		shapes[0] = new Shape(new int[][] { { 1, 1, 1, 1 } // I shape;
+		}, this, colors[0]);
+
+		shapes[1] = new Shape(new int[][] { { 1, 1, 1 }, { 0, 1, 0 }, // T shape;
+		}, this, colors[1]);
+
+		shapes[2] = new Shape(new int[][] { { 1, 1, 1 }, { 1, 0, 0 }, // L shape;
+		}, this, colors[2]);
+
+		shapes[3] = new Shape(new int[][] { { 1, 1, 1 }, { 0, 0, 1 }, // J shape;
+		}, this, colors[3]);
+
+		shapes[4] = new Shape(new int[][] { { 0, 1, 1 }, { 1, 1, 0 }, // S shape;
+		}, this, colors[4]);
+
+		shapes[5] = new Shape(new int[][] { { 1, 1, 0 }, { 0, 1, 1 }, // Z shape;
+		}, this, colors[5]);
+
+		shapes[6] = new Shape(new int[][] { { 1, 1 }, { 1, 1 }, // O shape;
+		}, this, colors[6]);
+		
+		currentShape = shapes[0];
+
 		looper = new Timer(delay, new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(collision) {
-					return;
-				}
-				
-				// check horizontal movement
-				if (!((x + deltaX + shape[0].length) > 10) && !((x + deltaX) < 0)) {
-					x += deltaX;
-				}
-				deltaX = 0;
-
-				if (System.currentTimeMillis() - beginTime > delayTimeForMovement) {
-					if (!(y + 1 + shape.length > BOARD_HEIGHT)) {
-						y++; // moves tetris block to the bottom of the board
-					} else {
-						collision = true; // collides with the bottom
-					}
-					beginTime = System.currentTimeMillis();
-				}
+				update();
 				repaint(); // paintComponent gets called again
 			}
 		});
 		looper.start();
+	}
+
+	private void update() {
+		currentShape.update();
+	}
+	
+	public void setCurrentShape()
+	{
+		currentShape = shapes[1];
+		currentShape.reset();
 	}
 
 	@Override
@@ -66,13 +77,17 @@ public class Board extends JPanel implements KeyListener {
 		g.setColor(Color.black);
 		g.fillRect(0, 0, getWidth(), getHeight());
 
-		// draw the Shape
-		for (int row = 0; row < shape.length; row++) {
-			for (int col = 0; col < shape[0].length; col++) {
-				if (shape[row][col] != null) {
-					g.setColor(shape[row][col]);
-					g.fillRect(col * BLOCK_SIZE + x * BLOCK_SIZE, row * BLOCK_SIZE + y * BLOCK_SIZE, BLOCK_SIZE,
-							BLOCK_SIZE);
+		currentShape.render(g);
+		
+		
+		for(int row = 0; row < board.length; row++)
+		{
+			for(int col = 0; col < board[row].length; col++)
+			{
+				if(board[row][col] != null)
+				{
+					g.setColor(board[row][col]);
+					g.fillRect(col * BLOCK_SIZE, row * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
 				}
 			}
 		}
@@ -88,6 +103,12 @@ public class Board extends JPanel implements KeyListener {
 		}
 
 	}
+	
+	public Color[][] getBoard()
+	{
+		return this.board;
+	}
+	
 
 	@Override
 	public void keyTyped(KeyEvent e) {
@@ -97,18 +118,18 @@ public class Board extends JPanel implements KeyListener {
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			delayTimeForMovement = fast;
+			currentShape.speedUp();
 		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			deltaX = 1;
+			currentShape.moveRight();
 		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			deltaX = -1;
+			currentShape.moveLeft();
 		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			delayTimeForMovement = normal;
+			currentShape.speedDown();
 		}
 	}
 
