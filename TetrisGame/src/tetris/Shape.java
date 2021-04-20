@@ -4,11 +4,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Shape {
-	
+
 	public static final int BOARD_WIDTH = 10, BOARD_HEIGHT = 20, BLOCK_SIZE = 30;
-	
+
 	private int x = 4, y = 0; // initial spots of the shape
-	
+
 	private int normal = 600;
 	private int fast = 50;
 	private int delayTimeForMovement = normal;
@@ -16,74 +16,90 @@ public class Shape {
 
 	private int deltaX = 0;
 	private boolean collision = false;
-	
+
 	private int[][] coords;
 	private Board board;
 	private Color color;
-	
-	public Shape(int[][] coords, Board board, Color color)
-	{
+
+	public Shape(int[][] coords, Board board, Color color) {
 		this.coords = coords;
 		this.board = board;
 		this.color = color;
 	}
-	
-	public void setX(int x)
-	{
+
+	public void setX(int x) {
 		this.x = x;
 	}
-	
-	public void setY(int y)
-	{
+
+	public void setY(int y) {
 		this.y = y;
 	}
-	
-	public void reset()
-	{
+
+	public void reset() {
 		this.x = 4;
 		this.y = 0;
 		collision = false;
 	}
-	
-	public void update()
-	{
-		if(collision) {
+
+	public void update() {
+		if (collision) {
 			// Fill the color for the board
-			for(int row = 0; row < coords.length; row++)
-			{
-				for(int col = 0; col < coords[0].length; col++)
-				{
-					if(coords[row][col] != 0)
-					{
+			for (int row = 0; row < coords.length; row++) {
+				for (int col = 0; col < coords[0].length; col++) {
+					if (coords[row][col] != 0) {
 						board.getBoard()[y + row][x + col] = color;
 					}
 				}
 			}
-			
-			// set current shape 
+
+			// set current shape
 			board.setCurrentShape();
-			
+
 			return;
 		}
-		
+
 		// check horizontal movement
+		boolean moveX = true;
 		if (!((x + deltaX + coords[0].length) > 10) && !((x + deltaX) < 0)) {
-			x += deltaX;
+			for (int row = 0; row < coords.length; row++) {
+				for (int col = 0; col < coords[row].length; col++) {
+					if (coords[row][col] != 0) {
+						if (board.getBoard()[y + row][x + deltaX + col] != null) {
+							moveX = false;
+						}
+					}
+				}
+			}
+			if (moveX) {
+				x += deltaX;
+			}
 		}
 		deltaX = 0;
 
 		if (System.currentTimeMillis() - beginTime > delayTimeForMovement) {
+			// vertical movement
 			if (!(y + 1 + coords.length > BOARD_HEIGHT)) {
-				y++; // moves tetris block to the bottom of the board
+				for (int row = 0; row < coords.length; row++) {
+					for (int col = 0; col < coords[row].length; col++) {
+						if (coords[row][col] != 0) {
+							if (board.getBoard()[y + 1 + row][x + deltaX + col] != null) {
+								collision = true;
+							}
+						}
+					}
+				}
+				if (!collision) {
+
+					y++; // moves block to the bottom of the board
+				}
 			} else {
 				collision = true; // collides with the bottom
 			}
 			beginTime = System.currentTimeMillis();
 		}
 	}
-	
-	public void render(Graphics g)
-	{
+
+	public void render(Graphics g) {
 		// draw the Shape
 		for (int row = 0; row < coords.length; row++) {
 			for (int col = 0; col < coords[0].length; col++) {
@@ -95,24 +111,20 @@ public class Shape {
 			}
 		}
 	}
-	
-	public void speedUp()
-	{
+
+	public void speedUp() {
 		delayTimeForMovement = fast;
 	}
-	
-	public void speedDown()
-	{
+
+	public void speedDown() {
 		delayTimeForMovement = normal;
 	}
-	
-	public void moveRight()
-	{
+
+	public void moveRight() {
 		deltaX = 1;
 	}
-	
-	public void moveLeft()
-	{
+
+	public void moveLeft() {
 		deltaX = -1;
 	}
 
