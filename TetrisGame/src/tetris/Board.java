@@ -21,7 +21,7 @@ public class Board extends JPanel implements KeyListener {
 
 	private static int FPS = 60; // frames per second
 	private static int delay = FPS / 1000;
-	
+
 	private int score = 0;
 
 	public static final int BOARD_WIDTH = 10, BOARD_HEIGHT = 20, BLOCK_SIZE = 30;
@@ -118,8 +118,8 @@ public class Board extends JPanel implements KeyListener {
 		g.setColor(Color.white);
 		g.setFont(new Font("Georgia", Font.BOLD, 20));
 
-        g.drawString("SCORE", WindowGame.WIDTH - 125, WindowGame.HEIGHT / 2);
-        g.drawString(score + "", WindowGame.WIDTH - 125, WindowGame.HEIGHT / 2 + 30);
+		g.drawString("SCORE", WindowGame.WIDTH - 125, WindowGame.HEIGHT / 2);
+		g.drawString(score + "", WindowGame.WIDTH - 125, WindowGame.HEIGHT / 2 + 30);
 
 		// draw the Board
 		g.setColor(Color.white);
@@ -135,7 +135,7 @@ public class Board extends JPanel implements KeyListener {
 			g.setColor(Color.white);
 			g.drawString("GAME", WindowGame.WIDTH - 125, WindowGame.HEIGHT / 4);
 			g.drawString("OVER", WindowGame.WIDTH - 125, WindowGame.HEIGHT / 4 + 30);
-			
+
 			g.setFont(new Font("Georgia", Font.PLAIN, 20));
 			g.drawString("Press", WindowGame.WIDTH - 125, WindowGame.HEIGHT / 2 + 90);
 			g.drawString("SPACE", WindowGame.WIDTH - 125, WindowGame.HEIGHT / 2 + 110);
@@ -156,9 +156,7 @@ public class Board extends JPanel implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			currentShape.speedUp();
-		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 			currentShape.moveRight();
 		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
 			currentShape.moveLeft();
@@ -186,11 +184,8 @@ public class Board extends JPanel implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-			currentShape.speedDown();
-		}
 	}
-	
+
 	public void addScore() {
 		score++;
 	}
