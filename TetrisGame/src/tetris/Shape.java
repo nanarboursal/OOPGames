@@ -51,7 +51,8 @@ public class Shape {
 					}
 				}
 			}
-
+			
+			checkLine();
 			// set current shape
 			board.setCurrentShape();
 
@@ -96,6 +97,25 @@ public class Shape {
 				collision = true; // collides with the bottom
 			}
 			beginTime = System.currentTimeMillis();
+		}
+	}
+	
+	private void checkLine() {
+		int bottomLine = board.getBoard().length - 1;
+		for(int topLine = board.getBoard().length-1; topLine > 0; topLine--) {
+			int count = 0; //use for counting the cells
+			for(int col = 0; col < board.getBoard()[0].length; col++)
+			{
+				if(board.getBoard()[topLine][col] != null)
+				{
+					count++;
+				}
+				board.getBoard()[bottomLine][col] = board.getBoard()[topLine][col];
+			}
+			if(count < board.getBoard()[0].length) {
+				bottomLine--; // move bottom line up one unit
+				
+			}
 		}
 	}
 
