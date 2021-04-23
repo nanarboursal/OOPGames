@@ -133,7 +133,14 @@ public class Board extends JPanel implements KeyListener {
 
 		if (state == STATE_GAME_OVER) {
 			g.setColor(Color.white);
-			g.drawString("GAME OVER", 50, 200);
+			g.drawString("GAME", WindowGame.WIDTH - 125, WindowGame.HEIGHT / 4);
+			g.drawString("OVER", WindowGame.WIDTH - 125, WindowGame.HEIGHT / 4 + 30);
+			
+			g.setFont(new Font("Georgia", Font.PLAIN, 20));
+			g.drawString("Press", WindowGame.WIDTH - 125, WindowGame.HEIGHT / 2 + 90);
+			g.drawString("SPACE", WindowGame.WIDTH - 125, WindowGame.HEIGHT / 2 + 110);
+			g.drawString("to", WindowGame.WIDTH - 125, WindowGame.HEIGHT / 2 + 130);
+			g.drawString("restart.", WindowGame.WIDTH - 125, WindowGame.HEIGHT / 2 + 150);
 		}
 
 	}
