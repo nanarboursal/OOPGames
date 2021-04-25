@@ -53,4 +53,8 @@ public class Ball extends Sprite{
 	void setYDirection(int y) {
 		moveY = y;
 	}
+	
+	int getYDirection() {
+		return moveY;
+	}
 }
