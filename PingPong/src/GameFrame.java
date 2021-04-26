@@ -15,6 +15,7 @@ public class GameFrame extends JFrame{
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.pack();// once game panel is created the game frame class will fit around the panel
 		this.setVisible(true);
+		this.setLocationRelativeTo(null);
 		
 	}
 
