@@ -1,5 +1,6 @@
 package View;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import java.awt.FlowLayout;
 import java.util.concurrent.BlockingQueue;
@@ -26,21 +27,38 @@ public class GameFrame extends JFrame {
 		GamePanel panel = new GamePanel(queue,applemodel, snakemodel);
 =======
 import javax.swing.*;
+=======
+>>>>>>> fixing model
 
-public class GameFrame extends JFrame{
+import java.awt.FlowLayout;
 
-	/** 
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class GameFrame extends JFrame {
+
+	/**
 	 * Constructor
 	 */
-	
+
 	public GameFrame() {
-		
+
 		GamePanel panel = new GamePanel();
+<<<<<<< HEAD
 >>>>>>> creating basic MVC structure
+=======
+		JPanel scorePanel = new JPanel();
+//		int score = panel.getApples();
+//		scorePanel.add(new JLabel("score: " + score));
+//		this.add(scorePanel);
+>>>>>>> fixing model
 		this.add(panel);
+
 		this.setTitle("Snake");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
+<<<<<<< HEAD
 <<<<<<< HEAD
 
 		// Fit JFrame around all other view components
@@ -53,8 +71,14 @@ public class GameFrame extends JFrame{
 		this.pack();
 		
 >>>>>>> creating basic MVC structure
+=======
+
+		// Fit JFrame around all other view components
+		this.pack();
+		this.setLayout(new FlowLayout());
+
+>>>>>>> fixing model
 		this.setVisible(true);
-		
 		// Set window in the middle of the screen
 		this.setLocationRelativeTo(null);
 	}
