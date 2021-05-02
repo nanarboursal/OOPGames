@@ -1,11 +1,13 @@
 package View;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.Timer;
 import Controller.MyKeyAdapter;
 import java.util.*;
-
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import javax.swing.*;
 
 public class GamePanel extends JPanel implements ActionListener {
@@ -16,7 +18,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	// The board is divided into small squares, called units
 	static final int UNIT_SIZE = 25;
 
-	static final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT) / UNIT_SIZE;
+	static final int GAME_UNITS = (SCREEN_WIDTH * (SCREEN_HEIGHT)) / UNIT_SIZE;
 	static final int DELAY = 75;
 
 	/**
@@ -31,12 +33,15 @@ public class GamePanel extends JPanel implements ActionListener {
 	int appleX = 0;
 	int appleY = 0;
 
-	char direction = new MyKeyAdapter().direction;
+	MyKeyAdapter adapter = new MyKeyAdapter();
+	public char direction = adapter.direction;
 	boolean running = false;
 
 	Timer timer;
 	Random random;
 
+	JPanel scorePanel = new JPanel();
+	JLabel scorelabel = new JLabel();
 	/**
 	 * Constructor
 	 */
@@ -46,10 +51,9 @@ public class GamePanel extends JPanel implements ActionListener {
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.black);
 		this.setFocusable(true);
-		this.addKeyListener(new MyKeyAdapter());
+		this.addKeyListener(adapter);
 
 		startGame();
-
 	}
 
 	public void startGame() {
@@ -60,6 +64,10 @@ public class GamePanel extends JPanel implements ActionListener {
 		// because this class implements ActionListener
 		timer = new Timer(DELAY, this);
 		timer.start();
+//		scorelabel.setText("score: " + applesEaten);
+//		scorePanel.add(scorelabel);
+//		scorePanel.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT-550));
+//		this.add(scorePanel);
 	}
 
 	public void paintComponent(Graphics g) {
@@ -95,16 +103,20 @@ public class GamePanel extends JPanel implements ActionListener {
 			g.setFont(new Font("Ink Free", Font.BOLD, 40));
 			FontMetrics metrics = getFontMetrics(g.getFont());
 			String text = "score: " + applesEaten;
-			g.drawString(text, (SCREEN_WIDTH - metrics.stringWidth(text))/2, g.getFont().getSize());
+			g.drawString(text, (SCREEN_WIDTH - metrics.stringWidth(text)) / 2, g.getFont().getSize());
 
 		} else {
 			gameOver(g);
 		}
 	}
+	
+	public int getApples() {
+		return applesEaten;
+	}
 
 	public void newApple() {
 		appleX = random.nextInt((int) (SCREEN_WIDTH / UNIT_SIZE)) * UNIT_SIZE;
-		appleY = random.nextInt((int) (SCREEN_HEIGHT / UNIT_SIZE)) * UNIT_SIZE;
+		appleY = random.nextInt((int) ((SCREEN_HEIGHT-8)/ UNIT_SIZE)) * UNIT_SIZE;
 	}
 
 	public void move() {
@@ -129,7 +141,8 @@ public class GamePanel extends JPanel implements ActionListener {
 			x[0] = x[0] + UNIT_SIZE;
 			break;
 		}
-
+		
+		this.direction = adapter.direction;
 	}
 
 	public void checkApple() {
@@ -184,16 +197,16 @@ public class GamePanel extends JPanel implements ActionListener {
 		g.setColor(Color.red);
 		g.setFont(new Font("Ink Free", Font.BOLD, 75));
 		FontMetrics metrics1 = getFontMetrics(g.getFont());
-		
+
 		// Positioning string to be at the center of the screen
 		String text = "GAME OVER x_x";
-		g.drawString(text, (SCREEN_WIDTH - metrics1.stringWidth(text))/2, SCREEN_HEIGHT/2);
-		
+		g.drawString(text, (SCREEN_WIDTH - metrics1.stringWidth(text)) / 2, SCREEN_HEIGHT / 2);
+
 		g.setColor(Color.red);
 		g.setFont(new Font("Ink Free", Font.BOLD, 40));
 		FontMetrics metrics2 = getFontMetrics(g.getFont());
 		String score_text = "score: " + applesEaten;
-		g.drawString(score_text, (SCREEN_WIDTH - metrics2.stringWidth(score_text))/2, g.getFont().getSize());
+		g.drawString(score_text, (SCREEN_WIDTH - metrics2.stringWidth(score_text)) / 2, g.getFont().getSize());
 
 	}
 
@@ -206,9 +219,38 @@ public class GamePanel extends JPanel implements ActionListener {
 			checkCollisions();
 		}
 		repaint();
-
 	}
 
-	
-
+//	public class MyKeyAdapter extends KeyAdapter {
+//
+//		@Override
+//		public void keyPressed(KeyEvent e) {
+//
+//			// To avoid snake from making a 180 degree turn into itself,
+//			// case statements to prevent that and only then change direction variable
+//			switch (e.getKeyCode()) { // getKeyCode() returns corresponding numerical value of key pressed
+//			case KeyEvent.VK_LEFT:
+//				if (direction != 'R') {
+//					direction = 'L';
+//				}
+//				break;
+//			case KeyEvent.VK_RIGHT:
+//				if (direction != 'L') {
+//					direction = 'R';
+//				}
+//				break;
+//			case KeyEvent.VK_UP:
+//				if (direction != 'D') {
+//					direction = 'U';
+//				}
+//				break;
+//			case KeyEvent.VK_DOWN:
+//				if (direction != 'U') {
+//					System.out.println("down key");
+//					direction = 'D';
+//				}
+//				break;
+//			}
+//		}
+//	}
 }
