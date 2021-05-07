@@ -1,11 +1,19 @@
 package Model;
 
+/**
+ * 
+ * Class: SnakeModel.java
+ * Purpose: 
+ */
+
 public class SnakeModel {
 	
+	/**
+	 * Numerical values for screen constants 
+	 */
 	static final int SCREEN_WIDTH = 600;
 	static final int SCREEN_HEIGHT = 600;
-
-	// The board is divided into small squares, called units
+	
 	static final int UNIT_SIZE = 25;
 
 	static final int GAME_UNITS = (SCREEN_WIDTH * (SCREEN_HEIGHT)) / UNIT_SIZE;
@@ -18,54 +26,90 @@ public class SnakeModel {
 	final int y[] = new int[GAME_UNITS];
 
 
+	/**
+	 * Initializing snake parts and running state 
+	 */
 	int bodyParts = 4;
-	
 	boolean running = false;
 	
+	/**
+	 * Initializing direction
+	 */
 	KeyDetails keyDetail = new KeyDetails('R');
 	char direction = keyDetail.getDirection();
 	
+	/**
+	 * Getter for running
+	 * @return running
+	 */
 	public boolean getRunning() {
 		return running;
 	}
 	
+	/**
+	 * Setter for running
+	 * @param running
+	 */
 	public void setRunning (boolean running) {
 		this.running = running;
 	}
 
+	/**
+	 * Getter for bodyParts
+	 * @return bodyParts
+	 */
 	public int getBodyParts() {
 		return bodyParts;
 	}
 	
+	/**
+	 * Setter for bodyParts
+	 * @param bodyParts
+	 */
 	public void setBodyParts(int bodyParts) {
 		this.bodyParts = bodyParts;
 	}
 	
+	/**
+	 * Getter for keyDetail
+	 * @return keyDetail
+	 */
 	public KeyDetails getKeyDetail() {
 		return this.keyDetail;
 	}
 
-	
+	/**
+	 * Setter for direction
+	 * @param direction
+	 */
 	public void setDirection(char direction) {
 		this.direction = direction;
 	}
 	
+	/**
+	 * Getter for x coordinates of snake
+	 * @return x[]
+	 */
 	public int[] getX() {
 		return x;
 	}
 	
+	/**
+	 * Getter for y coordinates of snake
+	 * @return y[]
+	 */
 	public int[] getY() {
 		return y;
 	}
 	
-	
+	/**
+	 * move() method to move snake body across UNIT_SIZE
+	 */
 	public void move() {
-		System.out.println("move");
 		for (int i = bodyParts; i > 0; i--) {
 			x[i] = x[i - 1];
 			y[i] = y[i - 1];
 		}
-		System.out.println(direction);
 
 		// Switch case for all possible directions
 		// Moving the 0th elements which represent the head
@@ -81,14 +125,15 @@ public class SnakeModel {
 			break;
 		case 'R':
 			x[0] = x[0] + UNIT_SIZE;
-			System.out.println("innnnnn " + x[0]);
 			break;
 		}
 	}
 	
+	/**
+	 * checkCollisions() to detect collisions with snake body or walls
+	 */
 	public void checkCollisions() {
-		System.out.println("RUNNINGGGG" + running);
-
+		
 		// Checks if head collides with body
 		for (int i = bodyParts; i > 0; i--) {
 			if ((x[0] == x[i]) && (y[0] == y[i])) {
@@ -115,11 +160,6 @@ public class SnakeModel {
 		if (y[0] > SCREEN_HEIGHT) {
 			running = false;
 		}
-
-		// If running is false, game over, timer stop
-
 	}
-
-	
 	
 }
