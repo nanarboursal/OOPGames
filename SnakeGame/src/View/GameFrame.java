@@ -13,15 +13,17 @@ import Model.SnakeModel;
 public class GameFrame extends JFrame {
 
 	/**
-	 * Constructor
+	 * 
+	 * @param queue
+	 * @param applemodel
+	 * @param snakemodel
+	 * 
+	 * Create the JFrame where GamePanel is added
 	 */
-
 	public GameFrame(BlockingQueue<KeyDetails> queue, AppleModel applemodel, SnakeModel snakemodel) {
 
 		GamePanel panel = new GamePanel(queue,applemodel, snakemodel);
-		JPanel scorePanel = new JPanel();
 		this.add(panel);
-
 		this.setTitle("Snake");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);

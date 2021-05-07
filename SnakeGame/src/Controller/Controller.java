@@ -3,41 +3,53 @@ package Controller;
 import java.util.concurrent.BlockingQueue;
 
 import Model.KeyDetails;
-import Model.SnakeGame;
+import Model.Model;
 import View.GameFrame;
+
+/**
+ * 
+ * Class: Controller.java
+ * Purpose: Controls the key events and sets direction of snake accordingly
+ */
 
 public class Controller {
 
 	BlockingQueue<KeyDetails> queue;
-	SnakeGame model;
+	Model model;
 	GameFrame view;
 
-	public Controller(BlockingQueue<KeyDetails> queue, SnakeGame model, GameFrame view) {
+	public Controller(BlockingQueue<KeyDetails> queue, Model model, GameFrame view) {
 		this.queue = queue;
 		this.model = model;
 		this.view = view;
 	}
 
+	/**
+	 * Takes events from queue and sets direction
+	 */
 	public void mainLoop() {
 		while (view.isDisplayable()) {
 			KeyDetails event = null;
+			
+			// Take KeyDetails event from queue
 			try {
 				event = queue.take();
 			} catch (InterruptedException exception) {
 				// do nothing
 			}
 			
+			// Set snake direction
 			if(event.getDirection() == 'R') {
-				SnakeGame.snakemodel.setDirection('R');
+				Model.snakemodel.setDirection('R');
 			}
 			else if(event.getDirection() == 'L') {
-				SnakeGame.snakemodel.setDirection('L');			
+				Model.snakemodel.setDirection('L');			
 				}
 			else if(event.getDirection() == 'U') {
-				SnakeGame.snakemodel.setDirection('U');			
+				Model.snakemodel.setDirection('U');			
 				}
 			else if(event.getDirection() == 'D') {
-				SnakeGame.snakemodel.setDirection('D');
+				Model.snakemodel.setDirection('D');
 			}
 		}
 	}
