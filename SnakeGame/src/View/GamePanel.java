@@ -48,9 +48,22 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
 
+/**
+ * 
+ * Class: GamePanel.java
+ * Purpose: Extends JPanel. Creates the game's panel, incorporating components like snake and apple 
+ *
+ */
 public class GamePanel extends JPanel implements ActionListener {
 
+<<<<<<< HEAD
 >>>>>>> creating basic MVC structure
+=======
+	/**
+	 * Numerical values for screen constants 
+	 */
+	
+>>>>>>> finishing touches
 	static final int SCREEN_WIDTH = 600;
 	static final int SCREEN_HEIGHT = 600;
 
@@ -65,6 +78,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	/**
 	 * KeyAdapter to keep track of keys pressed
 	 */
+<<<<<<< HEAD
 	MyKeyAdapter adapter = new MyKeyAdapter();
 =======
 	static final int GAME_UNITS = (SCREEN_WIDTH * SCREEN_HEIGHT) / UNIT_SIZE;
@@ -73,6 +87,8 @@ public class GamePanel extends JPanel implements ActionListener {
 >>>>>>> fixing model
 	static final int DELAY = 75;
 
+=======
+>>>>>>> finishing touches
 	MyKeyAdapter adapter = new MyKeyAdapter();
 <<<<<<< HEAD
 	public char direction = adapter.direction;
@@ -84,6 +100,9 @@ public class GamePanel extends JPanel implements ActionListener {
 	Timer timer;
 	Random random;
 
+	/**
+	 * UI elements and model objects
+	 */
 	JPanel scorePanel = new JPanel();
 	JLabel scorelabel = new JLabel();
 	
@@ -96,6 +115,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	char direction;
 
 	/**
+<<<<<<< HEAD
 <<<<<<< HEAD
 	 * UI elements and model objects
 	 */
@@ -111,6 +131,8 @@ public class GamePanel extends JPanel implements ActionListener {
 	char direction;
 
 	/**
+=======
+>>>>>>> finishing touches
 	 * 
 	 * @param queue
 	 * @param applemodel
@@ -118,6 +140,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	 * 
 	 * Constructor to initialize all models and queue
 	 * Also sets the basic JPanel settings
+<<<<<<< HEAD
 	 */
 	public GamePanel(BlockingQueue<KeyDetails> queue, AppleModel applemodel, SnakeModel snakemodel) {
 		this.queue = queue;
@@ -144,14 +167,19 @@ public class GamePanel extends JPanel implements ActionListener {
 		snakemodel.setRunning(true);
 =======
 	 * Constructor
+=======
+>>>>>>> finishing touches
 	 */
 	public GamePanel(BlockingQueue<KeyDetails> queue, AppleModel applemodel, SnakeModel snakemodel) {
 		this.queue = queue;
-		keyDetail = snakemodel.getKeyDetail();
-		direction = keyDetail.getDirection();
 		this.applemodel = applemodel;
 		this.snakemodel = snakemodel;
+		
+		keyDetail = snakemodel.getKeyDetail();
+		direction = keyDetail.getDirection();
+		
 		random = new Random();
+		
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.black);
 		this.setFocusable(true);
@@ -159,13 +187,19 @@ public class GamePanel extends JPanel implements ActionListener {
 		startGame();
 	}
 
+	/**
+	 * Starts game by setting "running" to true and starting timer
+	 */
 	public void startGame() {
+<<<<<<< HEAD
 <<<<<<< HEAD
 		newApple();
 		running = true;
 >>>>>>> creating basic MVC structure
 =======
 		System.out.println("startGame");
+=======
+>>>>>>> finishing touches
 		applemodel.newApple();
 		snakemodel.setRunning(true);
 >>>>>>> Finishes MVC
@@ -177,6 +211,9 @@ public class GamePanel extends JPanel implements ActionListener {
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> finishing touches
 	/**
 	 * Paint component based on state of variable "running"
 	 */
@@ -196,16 +233,22 @@ public class GamePanel extends JPanel implements ActionListener {
 	public void draw(Graphics g) {
 		if (running) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 			
 			// Create grids
 =======
 >>>>>>> creating basic MVC structure
+=======
+			
+			// Create grids
+>>>>>>> finishing touches
 			for (int i = 0; i < SCREEN_HEIGHT / UNIT_SIZE; i++) {
 				g.drawLine(i * UNIT_SIZE, 0, i * UNIT_SIZE, SCREEN_HEIGHT);
 				g.drawLine(0, i * UNIT_SIZE, SCREEN_WIDTH, i * UNIT_SIZE);
 			}
 
 			// Draw an apple
+<<<<<<< HEAD
 <<<<<<< HEAD
 			g.setColor(Color.green);
 			g.fillOval(applemodel.getAppleX(), applemodel.getAppleY(), UNIT_SIZE, UNIT_SIZE);
@@ -224,17 +267,20 @@ public class GamePanel extends JPanel implements ActionListener {
 					g.fillRect(snakemodel.getX()[i], snakemodel.getY()[i], UNIT_SIZE, UNIT_SIZE);
 =======
 			g.setColor(Color.red);
+=======
+			g.setColor(Color.green);
+>>>>>>> finishing touches
 			g.fillOval(applemodel.getAppleX(), applemodel.getAppleY(), UNIT_SIZE, UNIT_SIZE);
 
 			// Draw the Snake body
 			for (int i = 0; i < snakemodel.getBodyParts(); i++) {
 				// Just snake head
 				if (i == 0) {
-					System.out.println("innn");
-					g.setColor(Color.green);
+					g.setColor(Color.orange);
 					g.fillRect(snakemodel.getX()[i], snakemodel.getY()[i], UNIT_SIZE, UNIT_SIZE);
-				} else {
-					System.out.println(snakemodel.getX()[i]);
+				}
+				// Paint body
+				else {
 					g.setColor(new Color(45, 180, 0));
 					g.setColor(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
 <<<<<<< HEAD
@@ -264,8 +310,14 @@ public class GamePanel extends JPanel implements ActionListener {
 >>>>>>> Finishes MVC
 			g.drawString(text, (SCREEN_WIDTH - metrics.stringWidth(text)) / 2, g.getFont().getSize());
 
+<<<<<<< HEAD
 		} else {
 >>>>>>> creating basic MVC structure
+=======
+		} 
+		// If running = false, game over
+		else {
+>>>>>>> finishing touches
 			gameOver(g);
 		}
 	}
@@ -362,7 +414,15 @@ public class GamePanel extends JPanel implements ActionListener {
 =======
 >>>>>>> Finishes MVC
 
+<<<<<<< HEAD
 >>>>>>> creating basic MVC structure
+=======
+	/**
+	 * Game over when running is false
+	 * Displays screen with score and game over sign
+	 * @param g
+	 */
+>>>>>>> finishing touches
 	public void gameOver(Graphics g) {
 		// Game over text to be displayed
 		g.setColor(Color.red);
@@ -484,19 +544,32 @@ public class GamePanel extends JPanel implements ActionListener {
 
 	}
 
+	/**
+	 * Invoked when an action is performed
+	 */
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		// if running = true, go through the series of methods
 		if (running) {
 			snakemodel.move();
 			applemodel.checkApple(snakemodel.getX(), snakemodel.getY(), snakemodel.getBodyParts());
 			snakemodel.checkCollisions();
 			running = snakemodel.getRunning();
 		}
+		// else repaint()
 		repaint();
 	}
 
+	/**
+	 * Class for KeyAdapter
+	 *
+	 */
+	
 	public class MyKeyAdapter extends KeyAdapter {
 
+		/**
+		 * Invoked when a key is pressed
+		 */
 		@Override
 		public void keyPressed(KeyEvent e) {
 			queue.clear();
@@ -541,7 +614,6 @@ public class GamePanel extends JPanel implements ActionListener {
 				break;
 			case KeyEvent.VK_DOWN:
 				if (direction != 'U') {
-					System.out.println("down key");
 					direction = 'D';
 					keyDetail.setDirection(direction);
 					try {
@@ -555,5 +627,9 @@ public class GamePanel extends JPanel implements ActionListener {
 			}
 		}
 	}
+<<<<<<< HEAD
 }
 >>>>>>> creating basic MVC structure
+=======
+} // end of class
+>>>>>>> finishing touches
