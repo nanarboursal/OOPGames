@@ -13,34 +13,87 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 import java.util.concurrent.BlockingQueue;
 
+/**
+ * Board class is the JPanel that holds all the view components of the program
+ * 
+ * @author nanarboursalian
+ *
+ */
 public class Board extends JPanel implements KeyListener {
 
+	/**
+	 * Tells when the game is over or when the user is still playing
+	 * 
+	 * Initial state is still playing
+	 */
 	public static int STATE_GAME_PLAY = 0;
 	public static int STATE_GAME_OVER = 1;
-
 	private int state = STATE_GAME_PLAY;
 
+	/**
+	 * Frames per second and the delay of a Shape as it moves down a Board
+	 */
 	private static int FPS = 60; // frames per second
 	private static int delay = FPS / 1000;
 
+	/**
+	 * Users score, incremented every time a user lands another shape without the
+	 * game ending
+	 */
 	private int score = 0;
 
+	/**
+	 * Size of the Board and each individual block
+	 */
 	public static final int BOARD_WIDTH = 10, BOARD_HEIGHT = 20, BLOCK_SIZE = 30;
+
+	/**
+	 * Timer for Shape traversing down the game page
+	 */
 	private Timer looper;
+
+	/**
+	 * Holds all the Shapes in the game and their respective filled in/not filled in
+	 * blocks
+	 */
 	private Color[][] board = new Color[BOARD_HEIGHT][BOARD_WIDTH];
 
+	/**
+	 * Randomizer for deciding what Shape should traverse next
+	 */
 	private Random random;
 
+	/**
+	 * Array holding all of the possible Shape types for the game
+	 */
 	private Shape[] shapes = new Shape[7];
+	/**
+	 * Possible colors for all of the Shapes in the game
+	 */
 	private Color[] colors = { Color.decode("#ed1c24"), Color.decode("#ff7f27"), Color.decode("#fff200"),
 			Color.decode("#22b14c"), Color.decode("#00a2e8"), Color.decode("#a349a4"), Color.decode("#3f48cc") };
 
+	/**
+	 * Shape currently traversing down the screen
+	 */
 	private Shape currentShape;
-	
+
+	/**
+	 * BlockingQueue holding all of the KeyPressedMessage instances to deduce
+	 * appropriate action in Controller based on the key pressed
+	 */
 	BlockingQueue<KeyPressedMessage> queue;
 
+	/**
+	 * Constructor initializes the queue holding KeyPressedMessages, initializes the
+	 * randomizer, creates 7 unique Shapes and adds them to the shapes array,
+	 * initializes currentShape, and begins Timer in updating and painting the
+	 * components
+	 * 
+	 * @param queue
+	 */
 	public Board(BlockingQueue<KeyPressedMessage> queue) {
-		
+
 		this.queue = queue;
 
 		random = new Random();
@@ -77,18 +130,28 @@ public class Board extends JPanel implements KeyListener {
 		looper.start();
 	}
 
+	/**
+	 * Updates Shape if game in play
+	 */
 	private void update() {
 		if (state == STATE_GAME_PLAY) {
 			currentShape.update();
 		}
 	}
 
+	/**
+	 * Randomly chooses a shape from the array of shapes and sets initial location
+	 */
 	public void setCurrentShape() {
 		currentShape = shapes[random.nextInt(shapes.length)];
 		currentShape.reset();
 		checkOverGame();
 	}
 
+	/**
+	 * Checks whether or not the game is over by seeing if a block at the top of the
+	 * grid is filled in, or the coordinate value is 1
+	 */
 	private void checkOverGame() {
 		int[][] coords = currentShape.getCoords();
 		for (int row = 0; row < coords.length; row++) {
@@ -102,6 +165,15 @@ public class Board extends JPanel implements KeyListener {
 		}
 	}
 
+	/**
+	 * Paints the background, grid, and shape
+	 * 
+	 * Includes the score on the screen for the user to see
+	 * 
+	 * If game is over, final score and instructions to restart are shown
+	 * 
+	 * @param g
+	 */
 	@Override
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -150,6 +222,11 @@ public class Board extends JPanel implements KeyListener {
 
 	}
 
+	/**
+	 * Returns that Color board that holds the Shapes and their respective locations
+	 * 
+	 * @return board
+	 */
 	public Color[][] getBoard() {
 		return this.board;
 	}
@@ -159,39 +236,19 @@ public class Board extends JPanel implements KeyListener {
 
 	}
 
+	/**
+	 * Creates a KeyPressedMessage and sends the KeyEvent
+	 * 
+	 * Action to be determined in Controller depending on e
+	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
-		
+
 		try {
-			this.queue.put(
-					new KeyPressedMessage(e));
+			this.queue.put(new KeyPressedMessage(e));
 		} catch (InterruptedException er) {
 			er.printStackTrace();
 		}
-		
-//		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-//			currentShape.moveRight();
-//		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-//			currentShape.moveLeft();
-//		} else if (e.getKeyCode() == KeyEvent.VK_UP) {
-//			currentShape.rotateShape();
-//		}
-//
-//		if (state == STATE_GAME_OVER) {
-//			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-//				// resets game -- cleans the board
-//
-//				for (int row = 0; row < board.length; row++) {
-//					for (int col = 0; col < board[row].length; col++) {
-//						board[row][col] = null;
-//						score = 0;
-//					}
-//				}
-//				setCurrentShape();
-//				state = STATE_GAME_PLAY;
-//
-//			}
-//		}
 
 	}
 
@@ -199,23 +256,43 @@ public class Board extends JPanel implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 	}
 
+	/**
+	 * Increments score by 1
+	 */
 	public void addScore() {
 		score++;
 	}
-	
+
+	/**
+	 * Returns Shape currently traversing down the board
+	 * 
+	 * @return currentShape
+	 */
 	public Shape getCurrentShape() {
 		return this.currentShape;
 	}
-	
+
+	/**
+	 * Returns whether game is playing or game is over
+	 * 
+	 * @return state
+	 */
 	public int getState() {
 		return this.state;
 	}
-	
-	public void setState(int ste)
-	{
+
+	/**
+	 * Sets game playing/game over to specified state
+	 * 
+	 * @param ste
+	 */
+	public void setState(int ste) {
 		this.state = ste;
 	}
-	
+
+	/**
+	 * Resets score to 0
+	 */
 	public void resetScore() {
 		this.score = 0;
 	}
