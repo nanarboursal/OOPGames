@@ -4,7 +4,7 @@ import java.util.concurrent.BlockingQueue;
 
 import javax.swing.JFrame;
 
-public class WindowGame implements Game{
+public class WindowGame {
 	public static final int WIDTH = 445, HEIGHT = 630;
 
 	private Board board;
