@@ -11,6 +11,7 @@ import java.util.Random;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
+import java.util.concurrent.BlockingQueue;
 
 public class Board extends JPanel implements KeyListener {
 
@@ -35,8 +36,12 @@ public class Board extends JPanel implements KeyListener {
 			Color.decode("#22b14c"), Color.decode("#00a2e8"), Color.decode("#a349a4"), Color.decode("#3f48cc") };
 
 	private Shape currentShape;
+	
+	BlockingQueue<KeyPressedMessage> queue;
 
-	public Board() {
+	public Board(BlockingQueue<KeyPressedMessage> queue) {
+		
+		this.queue = queue;
 
 		random = new Random();
 
@@ -156,29 +161,37 @@ public class Board extends JPanel implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-			currentShape.moveRight();
-		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-			currentShape.moveLeft();
-		} else if (e.getKeyCode() == KeyEvent.VK_UP) {
-			currentShape.rotateShape();
+		
+		try {
+			this.queue.put(
+					new KeyPressedMessage(e));
+		} catch (InterruptedException er) {
+			er.printStackTrace();
 		}
-
-		if (state == STATE_GAME_OVER) {
-			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
-				// resets game -- cleans the board
-
-				for (int row = 0; row < board.length; row++) {
-					for (int col = 0; col < board[row].length; col++) {
-						board[row][col] = null;
-						score = 0;
-					}
-				}
-				setCurrentShape();
-				state = STATE_GAME_PLAY;
-
-			}
-		}
+		
+//		if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+//			currentShape.moveRight();
+//		} else if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+//			currentShape.moveLeft();
+//		} else if (e.getKeyCode() == KeyEvent.VK_UP) {
+//			currentShape.rotateShape();
+//		}
+//
+//		if (state == STATE_GAME_OVER) {
+//			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+//				// resets game -- cleans the board
+//
+//				for (int row = 0; row < board.length; row++) {
+//					for (int col = 0; col < board[row].length; col++) {
+//						board[row][col] = null;
+//						score = 0;
+//					}
+//				}
+//				setCurrentShape();
+//				state = STATE_GAME_PLAY;
+//
+//			}
+//		}
 
 	}
 
@@ -188,6 +201,23 @@ public class Board extends JPanel implements KeyListener {
 
 	public void addScore() {
 		score++;
+	}
+	
+	public Shape getCurrentShape() {
+		return this.currentShape;
+	}
+	
+	public int getState() {
+		return this.state;
+	}
+	
+	public void setState(int ste)
+	{
+		this.state = ste;
+	}
+	
+	public void resetScore() {
+		this.score = 0;
 	}
 
 }

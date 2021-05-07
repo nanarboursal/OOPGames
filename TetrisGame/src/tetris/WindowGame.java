@@ -1,5 +1,7 @@
 package tetris;
 
+import java.util.concurrent.BlockingQueue;
+
 import javax.swing.JFrame;
 
 public class WindowGame {
@@ -7,9 +9,12 @@ public class WindowGame {
 
 	private Board board;
 	private JFrame window;
+	BlockingQueue<KeyPressedMessage> queue;
 
-	public WindowGame() {
+	public WindowGame(BlockingQueue<KeyPressedMessage> queue) {
 
+		this.queue = queue;
+		
 		// Frame Settings
 		window = new JFrame("Tetris");
 		window.setSize(WIDTH, HEIGHT);
@@ -17,14 +22,18 @@ public class WindowGame {
 		window.setLocationRelativeTo(null); // puts the window in the center of the screen
 		window.setResizable(false);
 
-		board = new Board();
+		board = new Board(queue);
 		window.add(board);
 		window.addKeyListener(board);
 		window.setVisible(true);
 	}
 
-	public static void main(String[] args) {
-		new WindowGame();
+//	public static void main(String[] args) {
+//		new WindowGame();
+//	}
+	
+	public Board getBoard() {
+		return this.board;
 	}
 
 }
