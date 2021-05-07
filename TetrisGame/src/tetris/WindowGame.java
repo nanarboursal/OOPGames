@@ -4,7 +4,7 @@ import java.util.concurrent.BlockingQueue;
 
 import javax.swing.JFrame;
 
-public class WindowGame {
+public class WindowGame implements Game{
 	public static final int WIDTH = 445, HEIGHT = 630;
 
 	private Board board;
@@ -27,10 +27,6 @@ public class WindowGame {
 		window.addKeyListener(board);
 		window.setVisible(true);
 	}
-
-//	public static void main(String[] args) {
-//		new WindowGame();
-//	}
 	
 	public Board getBoard() {
 		return this.board;
