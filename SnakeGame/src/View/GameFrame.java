@@ -31,10 +31,14 @@ import javax.swing.*;
 >>>>>>> fixing model
 
 import java.awt.FlowLayout;
+import java.util.concurrent.BlockingQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import Model.AppleModel;
+import Model.KeyDetails;
+import Model.SnakeModel;
 
 public class GameFrame extends JFrame {
 
@@ -42,8 +46,9 @@ public class GameFrame extends JFrame {
 	 * Constructor
 	 */
 
-	public GameFrame() {
+	public GameFrame(BlockingQueue<KeyDetails> queue, AppleModel applemodel, SnakeModel snakemodel) {
 
+<<<<<<< HEAD
 		GamePanel panel = new GamePanel();
 <<<<<<< HEAD
 >>>>>>> creating basic MVC structure
@@ -53,6 +58,10 @@ public class GameFrame extends JFrame {
 //		scorePanel.add(new JLabel("score: " + score));
 //		this.add(scorePanel);
 >>>>>>> fixing model
+=======
+		GamePanel panel = new GamePanel(queue,applemodel, snakemodel);
+		JPanel scorePanel = new JPanel();
+>>>>>>> Finishes MVC
 		this.add(panel);
 
 		this.setTitle("Snake");
@@ -79,6 +88,7 @@ public class GameFrame extends JFrame {
 
 >>>>>>> fixing model
 		this.setVisible(true);
+		
 		// Set window in the middle of the screen
 		this.setLocationRelativeTo(null);
 	}

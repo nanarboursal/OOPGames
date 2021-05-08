@@ -12,10 +12,14 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.Timer;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Finishes MVC
 import Model.AppleModel;
 import Model.KeyDetails;
 import Model.SnakeModel;
 
+<<<<<<< HEAD
 import java.util.*;
 import java.util.concurrent.BlockingQueue;
 import java.awt.event.KeyAdapter;
@@ -36,7 +40,10 @@ public class GamePanel extends JPanel implements ActionListener {
 	
 =======
 import Controller.MyKeyAdapter;
+=======
+>>>>>>> Finishes MVC
 import java.util.*;
+import java.util.concurrent.BlockingQueue;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import javax.swing.*;
@@ -66,28 +73,28 @@ public class GamePanel extends JPanel implements ActionListener {
 >>>>>>> fixing model
 	static final int DELAY = 75;
 
-	/**
-	 * Arrays for tracking x and y position of snake's body
-	 */
-	final int x[] = new int[GAME_UNITS];
-	final int y[] = new int[GAME_UNITS];
-
-	int bodyParts = 6;
-
-	int applesEaten = 0;
-	int appleX = 0;
-	int appleY = 0;
-
 	MyKeyAdapter adapter = new MyKeyAdapter();
+<<<<<<< HEAD
 	public char direction = adapter.direction;
 	boolean running = false;
 >>>>>>> creating basic MVC structure
+=======
+>>>>>>> Finishes MVC
 
 	Timer timer;
 	Random random;
 
 	JPanel scorePanel = new JPanel();
 	JLabel scorelabel = new JLabel();
+	
+	AppleModel applemodel;
+	SnakeModel snakemodel = new SnakeModel();
+	BlockingQueue<KeyDetails> queue;
+	KeyDetails keyDetail;
+	
+	boolean running = snakemodel.getRunning();
+	char direction;
+
 	/**
 <<<<<<< HEAD
 	 * UI elements and model objects
@@ -138,30 +145,35 @@ public class GamePanel extends JPanel implements ActionListener {
 =======
 	 * Constructor
 	 */
-	public GamePanel() {
-
+	public GamePanel(BlockingQueue<KeyDetails> queue, AppleModel applemodel, SnakeModel snakemodel) {
+		this.queue = queue;
+		keyDetail = snakemodel.getKeyDetail();
+		direction = keyDetail.getDirection();
+		this.applemodel = applemodel;
+		this.snakemodel = snakemodel;
 		random = new Random();
 		this.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
 		this.setBackground(Color.black);
 		this.setFocusable(true);
 		this.addKeyListener(adapter);
-
 		startGame();
 	}
 
 	public void startGame() {
+<<<<<<< HEAD
 		newApple();
 		running = true;
 >>>>>>> creating basic MVC structure
+=======
+		System.out.println("startGame");
+		applemodel.newApple();
+		snakemodel.setRunning(true);
+>>>>>>> Finishes MVC
 
 		// Initialize timer with DELAY value and this keyword
 		// because this class implements ActionListener
 		timer = new Timer(DELAY, this);
 		timer.start();
-//		scorelabel.setText("score: " + applesEaten);
-//		scorePanel.add(scorelabel);
-//		scorePanel.setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT-550));
-//		this.add(scorePanel);
 	}
 
 <<<<<<< HEAD
@@ -172,7 +184,11 @@ public class GamePanel extends JPanel implements ActionListener {
 		running = snakemodel.getRunning();
 =======
 	public void paintComponent(Graphics g) {
+<<<<<<< HEAD
 >>>>>>> creating basic MVC structure
+=======
+		running = snakemodel.getRunning();
+>>>>>>> Finishes MVC
 		super.paintComponent(g);
 		draw(g);
 	}
@@ -208,25 +224,32 @@ public class GamePanel extends JPanel implements ActionListener {
 					g.fillRect(snakemodel.getX()[i], snakemodel.getY()[i], UNIT_SIZE, UNIT_SIZE);
 =======
 			g.setColor(Color.red);
-			g.fillOval(appleX, appleY, UNIT_SIZE, UNIT_SIZE);
+			g.fillOval(applemodel.getAppleX(), applemodel.getAppleY(), UNIT_SIZE, UNIT_SIZE);
 
 			// Draw the Snake body
-			for (int i = 0; i < bodyParts; i++) {
+			for (int i = 0; i < snakemodel.getBodyParts(); i++) {
 				// Just snake head
 				if (i == 0) {
+					System.out.println("innn");
 					g.setColor(Color.green);
-					g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
+					g.fillRect(snakemodel.getX()[i], snakemodel.getY()[i], UNIT_SIZE, UNIT_SIZE);
 				} else {
+					System.out.println(snakemodel.getX()[i]);
 					g.setColor(new Color(45, 180, 0));
 					g.setColor(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
+<<<<<<< HEAD
 					g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
 >>>>>>> creating basic MVC structure
+=======
+					g.fillRect(snakemodel.getX()[i], snakemodel.getY()[i], UNIT_SIZE, UNIT_SIZE);
+>>>>>>> Finishes MVC
 				}
 
 			}
 			g.setColor(Color.red);
 			g.setFont(new Font("Ink Free", Font.BOLD, 40));
 			FontMetrics metrics = getFontMetrics(g.getFont());
+<<<<<<< HEAD
 <<<<<<< HEAD
 			String text = "score: " + applemodel.getApples();
 			g.drawString(text, (SCREEN_WIDTH - metrics.stringWidth(text)) / 2, g.getFont().getSize());
@@ -236,6 +259,9 @@ public class GamePanel extends JPanel implements ActionListener {
 		else {
 =======
 			String text = "score: " + applesEaten;
+=======
+			String text = "score: " + applemodel.getApples();
+>>>>>>> Finishes MVC
 			g.drawString(text, (SCREEN_WIDTH - metrics.stringWidth(text)) / 2, g.getFont().getSize());
 
 		} else {
@@ -243,6 +269,7 @@ public class GamePanel extends JPanel implements ActionListener {
 			gameOver(g);
 		}
 	}
+<<<<<<< HEAD
 	
 	public int getApples() {
 		return applesEaten;
@@ -332,6 +359,8 @@ public class GamePanel extends JPanel implements ActionListener {
 		}
 
 	}
+=======
+>>>>>>> Finishes MVC
 
 >>>>>>> creating basic MVC structure
 	public void gameOver(Graphics g) {
@@ -450,53 +479,81 @@ public class GamePanel extends JPanel implements ActionListener {
 		g.setColor(Color.red);
 		g.setFont(new Font("Ink Free", Font.BOLD, 40));
 		FontMetrics metrics2 = getFontMetrics(g.getFont());
-		String score_text = "score: " + applesEaten;
+		String score_text = "score: " + applemodel.getApples();
 		g.drawString(score_text, (SCREEN_WIDTH - metrics2.stringWidth(score_text)) / 2, g.getFont().getSize());
 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-
 		if (running) {
-			move();
-			checkApple();
-			checkCollisions();
+			snakemodel.move();
+			applemodel.checkApple(snakemodel.getX(), snakemodel.getY(), snakemodel.getBodyParts());
+			snakemodel.checkCollisions();
+			running = snakemodel.getRunning();
 		}
 		repaint();
 	}
 
-//	public class MyKeyAdapter extends KeyAdapter {
-//
-//		@Override
-//		public void keyPressed(KeyEvent e) {
-//
-//			// To avoid snake from making a 180 degree turn into itself,
-//			// case statements to prevent that and only then change direction variable
-//			switch (e.getKeyCode()) { // getKeyCode() returns corresponding numerical value of key pressed
-//			case KeyEvent.VK_LEFT:
-//				if (direction != 'R') {
-//					direction = 'L';
-//				}
-//				break;
-//			case KeyEvent.VK_RIGHT:
-//				if (direction != 'L') {
-//					direction = 'R';
-//				}
-//				break;
-//			case KeyEvent.VK_UP:
-//				if (direction != 'D') {
-//					direction = 'U';
-//				}
-//				break;
-//			case KeyEvent.VK_DOWN:
-//				if (direction != 'U') {
-//					System.out.println("down key");
-//					direction = 'D';
-//				}
-//				break;
-//			}
-//		}
-//	}
+	public class MyKeyAdapter extends KeyAdapter {
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			queue.clear();
+			// To avoid snake from making a 180 degree turn into itself,
+			// case statements to prevent that and only then change direction variable
+			switch (e.getKeyCode()) { // getKeyCode() returns corresponding numerical value of key pressed
+			case KeyEvent.VK_LEFT:
+				if (direction != 'R') {
+					direction = 'L';
+					keyDetail.setDirection(direction);
+					try {
+						queue.put(keyDetail);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				break;
+			case KeyEvent.VK_RIGHT:
+				if (direction != 'L') {
+					direction = 'R';
+					keyDetail.setDirection(direction);
+					try {
+						queue.put(keyDetail);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				break;
+			case KeyEvent.VK_UP:
+				if (direction != 'D') {
+					direction = 'U';
+					keyDetail.setDirection(direction);
+					try {
+						queue.put(keyDetail);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				break;
+			case KeyEvent.VK_DOWN:
+				if (direction != 'U') {
+					System.out.println("down key");
+					direction = 'D';
+					keyDetail.setDirection(direction);
+					try {
+						queue.put(keyDetail);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+				}
+				break;
+			}
+		}
+	}
 }
 >>>>>>> creating basic MVC structure

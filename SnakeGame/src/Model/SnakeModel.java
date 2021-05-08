@@ -1,5 +1,6 @@
 package Model;
 
+<<<<<<< HEAD
 /**
  * 
  * Class: SnakeModel.java
@@ -14,6 +15,14 @@ public class SnakeModel {
 	static final int SCREEN_WIDTH = 600;
 	static final int SCREEN_HEIGHT = 600;
 	
+=======
+public class SnakeModel {
+	
+	static final int SCREEN_WIDTH = 600;
+	static final int SCREEN_HEIGHT = 600;
+
+	// The board is divided into small squares, called units
+>>>>>>> Finishes MVC
 	static final int UNIT_SIZE = 25;
 
 	static final int GAME_UNITS = (SCREEN_WIDTH * (SCREEN_HEIGHT)) / UNIT_SIZE;
@@ -26,6 +35,7 @@ public class SnakeModel {
 	final int y[] = new int[GAME_UNITS];
 
 
+<<<<<<< HEAD
 	/**
 	 * Initializing snake parts and running state 
 	 */
@@ -42,74 +52,115 @@ public class SnakeModel {
 	 * Getter for running
 	 * @return running
 	 */
+=======
+	int bodyParts = 4;
+	
+	boolean running = false;
+	
+	KeyDetails keyDetail = new KeyDetails('R');
+	char direction = keyDetail.getDirection();
+	
+>>>>>>> Finishes MVC
 	public boolean getRunning() {
 		return running;
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * Setter for running
 	 * @param running
 	 */
+=======
+>>>>>>> Finishes MVC
 	public void setRunning (boolean running) {
 		this.running = running;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Getter for bodyParts
 	 * @return bodyParts
 	 */
+=======
+>>>>>>> Finishes MVC
 	public int getBodyParts() {
 		return bodyParts;
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * Setter for bodyParts
 	 * @param bodyParts
 	 */
+=======
+>>>>>>> Finishes MVC
 	public void setBodyParts(int bodyParts) {
 		this.bodyParts = bodyParts;
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * Getter for keyDetail
 	 * @return keyDetail
 	 */
+=======
+>>>>>>> Finishes MVC
 	public KeyDetails getKeyDetail() {
 		return this.keyDetail;
 	}
 
+<<<<<<< HEAD
 	/**
 	 * Setter for direction
 	 * @param direction
 	 */
+=======
+	
+>>>>>>> Finishes MVC
 	public void setDirection(char direction) {
 		this.direction = direction;
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * Getter for x coordinates of snake
 	 * @return x[]
 	 */
+=======
+>>>>>>> Finishes MVC
 	public int[] getX() {
 		return x;
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * Getter for y coordinates of snake
 	 * @return y[]
 	 */
+=======
+>>>>>>> Finishes MVC
 	public int[] getY() {
 		return y;
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * move() method to move snake body across UNIT_SIZE
 	 */
 	public void move() {
+=======
+	
+	public void move() {
+		System.out.println("move");
+>>>>>>> Finishes MVC
 		for (int i = bodyParts; i > 0; i--) {
 			x[i] = x[i - 1];
 			y[i] = y[i - 1];
 		}
+<<<<<<< HEAD
+=======
+		System.out.println(direction);
+>>>>>>> Finishes MVC
 
 		// Switch case for all possible directions
 		// Moving the 0th elements which represent the head
@@ -125,15 +176,25 @@ public class SnakeModel {
 			break;
 		case 'R':
 			x[0] = x[0] + UNIT_SIZE;
+<<<<<<< HEAD
+=======
+			System.out.println("innnnnn " + x[0]);
+>>>>>>> Finishes MVC
 			break;
 		}
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * checkCollisions() to detect collisions with snake body or walls
 	 */
 	public void checkCollisions() {
 		
+=======
+	public void checkCollisions() {
+		System.out.println("RUNNINGGGG" + running);
+
+>>>>>>> Finishes MVC
 		// Checks if head collides with body
 		for (int i = bodyParts; i > 0; i--) {
 			if ((x[0] == x[i]) && (y[0] == y[i])) {
@@ -160,6 +221,15 @@ public class SnakeModel {
 		if (y[0] > SCREEN_HEIGHT) {
 			running = false;
 		}
+<<<<<<< HEAD
 	}
+=======
+
+		// If running is false, game over, timer stop
+
+	}
+
+	
+>>>>>>> Finishes MVC
 	
 }
