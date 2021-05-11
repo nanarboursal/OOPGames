@@ -1,7 +1,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Starts basic classes for snakegame
+=======
+>>>>>>> Switching to rebase
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>SnakeGame</name>
@@ -19,6 +22,7 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
 </projectDescription>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <?xml version="1.0" encoding="UTF-8"?>
@@ -41,3 +45,5 @@
 >>>>>>> Starts basic classes for snakegame
 =======
 >>>>>>> Starts basic classes for snakegame
+=======
+>>>>>>> Switching to rebase
