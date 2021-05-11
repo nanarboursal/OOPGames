@@ -10,13 +10,13 @@ import java.util.concurrent.LinkedBlockingQueue;
  * @author nanarboursalian
  *
  */
-public class App {
+public class TetrisGame {
 
 	/**
 	 * Main method that runs the entire program of the game
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void playTetris() {
 
 		BlockingQueue queue = new LinkedBlockingQueue<KeyPressedMessage>();
 

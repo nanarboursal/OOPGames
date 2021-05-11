@@ -13,9 +13,9 @@ import View.GameFrame;
  * Purpose: Contains main() to start the snake game project. Creates the MVC components.
  */
 
-public class App {
+public class SnakeGame {
 
-	public static void main(String[] args) {
+	public static void playSnake() {
 
 		BlockingQueue<KeyDetails> queue = new LinkedBlockingQueue<>();
 		Model model = new Model();

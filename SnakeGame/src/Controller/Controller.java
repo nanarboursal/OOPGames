@@ -38,6 +38,8 @@ public class Controller {
 				// do nothing
 			}
 			
+			System.out.println("in main loop");
+			
 			// Set snake direction
 			if(event.getDirection() == 'R') {
 				Model.snakemodel.setDirection('R');
