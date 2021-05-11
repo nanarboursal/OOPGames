@@ -24,7 +24,7 @@ public class GameFrame extends JFrame {
 
 		GamePanel panel = new GamePanel(queue,applemodel, snakemodel);
 		this.add(panel);
-		this.setTitle("Snake");
+		this.setTitle("Snake Game");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 
