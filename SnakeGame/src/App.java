@@ -5,6 +5,9 @@ import Controller.Controller;
 import Model.KeyDetails;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 import Model.Model;
 import View.GameFrame;
 
@@ -14,6 +17,7 @@ import View.GameFrame;
  * Purpose: Contains main() to start the snake game project. Creates the MVC components.
  */
 
+<<<<<<< HEAD
 =======
 import Model.SnakeGame;
 import View.GameFrame;
@@ -30,12 +34,15 @@ import View.GameFrame;
  */
 
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 public class App {
 
 	public static void main(String[] args) {
 
 		BlockingQueue<KeyDetails> queue = new LinkedBlockingQueue<>();
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		Model model = new Model();
@@ -45,6 +52,9 @@ public class App {
 =======
 		Model model = new Model();
 >>>>>>> finishing touches
+=======
+		Model model = new Model();
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 		GameFrame view = new GameFrame(queue, model.applemodel, model.snakemodel);
 		Controller controller = new Controller(queue, model, view);
 		controller.mainLoop();

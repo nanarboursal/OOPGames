@@ -1,24 +1,32 @@
 package View;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> creating basic MVC structure
 =======
 
 >>>>>>> fixing model
+=======
+
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.Timer;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Finishes MVC
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 import Model.AppleModel;
 import Model.KeyDetails;
 import Model.SnakeModel;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 import java.util.*;
 import java.util.concurrent.BlockingQueue;
@@ -42,6 +50,8 @@ public class GamePanel extends JPanel implements ActionListener {
 import Controller.MyKeyAdapter;
 =======
 >>>>>>> Finishes MVC
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 import java.util.*;
 import java.util.concurrent.BlockingQueue;
 import java.awt.event.KeyAdapter;
@@ -57,13 +67,19 @@ import javax.swing.*;
 public class GamePanel extends JPanel implements ActionListener {
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> creating basic MVC structure
 =======
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	/**
 	 * Numerical values for screen constants 
 	 */
 	
+<<<<<<< HEAD
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	static final int SCREEN_WIDTH = 600;
 	static final int SCREEN_HEIGHT = 600;
 
@@ -72,12 +88,16 @@ public class GamePanel extends JPanel implements ActionListener {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	static final int GAME_UNITS = (SCREEN_WIDTH * (SCREEN_HEIGHT)) / UNIT_SIZE;
 	static final int DELAY = 75;
 	
 	/**
 	 * KeyAdapter to keep track of keys pressed
 	 */
+<<<<<<< HEAD
 <<<<<<< HEAD
 	MyKeyAdapter adapter = new MyKeyAdapter();
 =======
@@ -96,6 +116,9 @@ public class GamePanel extends JPanel implements ActionListener {
 >>>>>>> creating basic MVC structure
 =======
 >>>>>>> Finishes MVC
+=======
+	MyKeyAdapter adapter = new MyKeyAdapter();
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 
 	Timer timer;
 	Random random;
@@ -117,6 +140,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	/**
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	 * UI elements and model objects
 	 */
 	JPanel scorePanel = new JPanel();
@@ -133,6 +157,8 @@ public class GamePanel extends JPanel implements ActionListener {
 	/**
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	 * 
 	 * @param queue
 	 * @param applemodel
@@ -140,6 +166,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	 * 
 	 * Constructor to initialize all models and queue
 	 * Also sets the basic JPanel settings
+<<<<<<< HEAD
 <<<<<<< HEAD
 	 */
 	public GamePanel(BlockingQueue<KeyDetails> queue, AppleModel applemodel, SnakeModel snakemodel) {
@@ -169,6 +196,8 @@ public class GamePanel extends JPanel implements ActionListener {
 	 * Constructor
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	 */
 	public GamePanel(BlockingQueue<KeyDetails> queue, AppleModel applemodel, SnakeModel snakemodel) {
 		this.queue = queue;
@@ -193,6 +222,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	public void startGame() {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		newApple();
 		running = true;
 >>>>>>> creating basic MVC structure
@@ -203,6 +233,10 @@ public class GamePanel extends JPanel implements ActionListener {
 		applemodel.newApple();
 		snakemodel.setRunning(true);
 >>>>>>> Finishes MVC
+=======
+		applemodel.newApple();
+		snakemodel.setRunning(true);
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 
 		// Initialize timer with DELAY value and this keyword
 		// because this class implements ActionListener
@@ -212,13 +246,17 @@ public class GamePanel extends JPanel implements ActionListener {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	/**
 	 * Paint component based on state of variable "running"
 	 */
 	public void paintComponent(Graphics g) {
 		running = snakemodel.getRunning();
+<<<<<<< HEAD
 =======
 	public void paintComponent(Graphics g) {
 <<<<<<< HEAD
@@ -226,6 +264,8 @@ public class GamePanel extends JPanel implements ActionListener {
 =======
 		running = snakemodel.getRunning();
 >>>>>>> Finishes MVC
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 		super.paintComponent(g);
 		draw(g);
 	}
@@ -234,6 +274,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		if (running) {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			
 			// Create grids
 =======
@@ -242,6 +283,10 @@ public class GamePanel extends JPanel implements ActionListener {
 			
 			// Create grids
 >>>>>>> finishing touches
+=======
+			
+			// Create grids
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 			for (int i = 0; i < SCREEN_HEIGHT / UNIT_SIZE; i++) {
 				g.drawLine(i * UNIT_SIZE, 0, i * UNIT_SIZE, SCREEN_HEIGHT);
 				g.drawLine(0, i * UNIT_SIZE, SCREEN_WIDTH, i * UNIT_SIZE);
@@ -250,6 +295,7 @@ public class GamePanel extends JPanel implements ActionListener {
 			// Draw an apple
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			g.setColor(Color.green);
 			g.fillOval(applemodel.getAppleX(), applemodel.getAppleY(), UNIT_SIZE, UNIT_SIZE);
 
@@ -270,6 +316,9 @@ public class GamePanel extends JPanel implements ActionListener {
 =======
 			g.setColor(Color.green);
 >>>>>>> finishing touches
+=======
+			g.setColor(Color.green);
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 			g.fillOval(applemodel.getAppleX(), applemodel.getAppleY(), UNIT_SIZE, UNIT_SIZE);
 
 			// Draw the Snake body
@@ -284,11 +333,15 @@ public class GamePanel extends JPanel implements ActionListener {
 					g.setColor(new Color(45, 180, 0));
 					g.setColor(new Color(random.nextInt(255), random.nextInt(255), random.nextInt(255)));
 <<<<<<< HEAD
+<<<<<<< HEAD
 					g.fillRect(x[i], y[i], UNIT_SIZE, UNIT_SIZE);
 >>>>>>> creating basic MVC structure
 =======
 					g.fillRect(snakemodel.getX()[i], snakemodel.getY()[i], UNIT_SIZE, UNIT_SIZE);
 >>>>>>> Finishes MVC
+=======
+					g.fillRect(snakemodel.getX()[i], snakemodel.getY()[i], UNIT_SIZE, UNIT_SIZE);
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 				}
 
 			}
@@ -297,12 +350,16 @@ public class GamePanel extends JPanel implements ActionListener {
 			FontMetrics metrics = getFontMetrics(g.getFont());
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 			String text = "score: " + applemodel.getApples();
 			g.drawString(text, (SCREEN_WIDTH - metrics.stringWidth(text)) / 2, g.getFont().getSize());
 
 		} 
 		// If running = false, game over
 		else {
+<<<<<<< HEAD
 =======
 			String text = "score: " + applesEaten;
 =======
@@ -417,17 +474,27 @@ public class GamePanel extends JPanel implements ActionListener {
 <<<<<<< HEAD
 >>>>>>> creating basic MVC structure
 =======
+=======
+			gameOver(g);
+		}
+	}
+
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	/**
 	 * Game over when running is false
 	 * Displays screen with score and game over sign
 	 * @param g
 	 */
+<<<<<<< HEAD
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	public void gameOver(Graphics g) {
 		// Game over text to be displayed
 		g.setColor(Color.red);
 		g.setFont(new Font("Ink Free", Font.BOLD, 75));
 		FontMetrics metrics1 = getFontMetrics(g.getFont());
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -532,6 +599,9 @@ public class GamePanel extends JPanel implements ActionListener {
 =======
 
 >>>>>>> fixing model
+=======
+
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 		// Positioning string to be at the center of the screen
 		String text = "GAME OVER x_x";
 		g.drawString(text, (SCREEN_WIDTH - metrics1.stringWidth(text)) / 2, SCREEN_HEIGHT / 2);
@@ -628,8 +698,12 @@ public class GamePanel extends JPanel implements ActionListener {
 		}
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 >>>>>>> creating basic MVC structure
 =======
 } // end of class
 >>>>>>> finishing touches
+=======
+} // end of class
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc

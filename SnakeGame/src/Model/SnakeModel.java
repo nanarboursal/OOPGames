@@ -2,8 +2,11 @@ package Model;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 /**
  * 
  * Class: SnakeModel.java
@@ -11,6 +14,9 @@ package Model;
  */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 public class SnakeModel {
 	
 	/**
@@ -19,6 +25,7 @@ public class SnakeModel {
 	static final int SCREEN_WIDTH = 600;
 	static final int SCREEN_HEIGHT = 600;
 	
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> finishing touches
@@ -36,6 +43,8 @@ public class SnakeModel {
 =======
 	
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	static final int UNIT_SIZE = 25;
 
 	static final int GAME_UNITS = (SCREEN_WIDTH * (SCREEN_HEIGHT)) / UNIT_SIZE;
@@ -50,6 +59,9 @@ public class SnakeModel {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	/**
 	 * Initializing snake parts and running state 
 	 */
@@ -66,6 +78,7 @@ public class SnakeModel {
 	 * Getter for running
 	 * @return running
 	 */
+<<<<<<< HEAD
 =======
 =======
 	/**
@@ -89,136 +102,184 @@ public class SnakeModel {
 	 * @return running
 	 */
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	public boolean getRunning() {
 		return running;
 	}
 	
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	/**
 	 * Setter for running
 	 * @param running
 	 */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Finishes MVC
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	public void setRunning (boolean running) {
 		this.running = running;
 	}
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	/**
 	 * Getter for bodyParts
 	 * @return bodyParts
 	 */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Finishes MVC
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	public int getBodyParts() {
 		return bodyParts;
 	}
 	
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	/**
 	 * Setter for bodyParts
 	 * @param bodyParts
 	 */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Finishes MVC
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	public void setBodyParts(int bodyParts) {
 		this.bodyParts = bodyParts;
 	}
 	
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	/**
 	 * Getter for keyDetail
 	 * @return keyDetail
 	 */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Finishes MVC
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	public KeyDetails getKeyDetail() {
 		return this.keyDetail;
 	}
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	/**
 	 * Setter for direction
 	 * @param direction
 	 */
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 	
 >>>>>>> Finishes MVC
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	public void setDirection(char direction) {
 		this.direction = direction;
 	}
 	
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	/**
 	 * Getter for x coordinates of snake
 	 * @return x[]
 	 */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Finishes MVC
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	public int[] getX() {
 		return x;
 	}
 	
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	/**
 	 * Getter for y coordinates of snake
 	 * @return y[]
 	 */
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> Finishes MVC
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	public int[] getY() {
 		return y;
 	}
 	
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	/**
 	 * move() method to move snake body across UNIT_SIZE
 	 */
 	public void move() {
+<<<<<<< HEAD
 =======
 	
 	public void move() {
@@ -230,10 +291,13 @@ public class SnakeModel {
 	 */
 	public void move() {
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 		for (int i = bodyParts; i > 0; i--) {
 			x[i] = x[i - 1];
 			y[i] = y[i - 1];
 		}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -241,6 +305,8 @@ public class SnakeModel {
 >>>>>>> Finishes MVC
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 
 		// Switch case for all possible directions
 		// Moving the 0th elements which represent the head
@@ -258,15 +324,19 @@ public class SnakeModel {
 			x[0] = x[0] + UNIT_SIZE;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 			System.out.println("innnnnn " + x[0]);
 >>>>>>> Finishes MVC
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 			break;
 		}
 	}
 	
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 	/**
@@ -280,12 +350,17 @@ public class SnakeModel {
 
 >>>>>>> Finishes MVC
 =======
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	/**
 	 * checkCollisions() to detect collisions with snake body or walls
 	 */
 	public void checkCollisions() {
 		
+<<<<<<< HEAD
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 		// Checks if head collides with body
 		for (int i = bodyParts; i > 0; i--) {
 			if ((x[0] == x[i]) && (y[0] == y[i])) {
@@ -314,6 +389,7 @@ public class SnakeModel {
 		}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	}
 =======
 
@@ -326,5 +402,8 @@ public class SnakeModel {
 =======
 	}
 >>>>>>> finishing touches
+=======
+	}
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	
 }

@@ -1,11 +1,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
+<<<<<<< HEAD
 =======
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
@@ -22,3 +26,5 @@
 	<classpathentry kind="output" path="bin"/>
 </classpath>
 >>>>>>> Starts basic classes for snakegame
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc

@@ -1,6 +1,9 @@
 package View;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 
 import java.awt.FlowLayout;
 import java.util.concurrent.BlockingQueue;
@@ -25,6 +28,7 @@ public class GameFrame extends JFrame {
 	public GameFrame(BlockingQueue<KeyDetails> queue, AppleModel applemodel, SnakeModel snakemodel) {
 
 		GamePanel panel = new GamePanel(queue,applemodel, snakemodel);
+<<<<<<< HEAD
 =======
 import javax.swing.*;
 =======
@@ -69,10 +73,13 @@ public class GameFrame extends JFrame {
 >>>>>>> Finishes MVC
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 		this.add(panel);
 		this.setTitle("Snake Game");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -87,12 +94,17 @@ public class GameFrame extends JFrame {
 		
 >>>>>>> creating basic MVC structure
 =======
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 
 		// Fit JFrame around all other view components
 		this.pack();
 		this.setLayout(new FlowLayout());
 
+<<<<<<< HEAD
 >>>>>>> fixing model
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 		this.setVisible(true);
 		
 		// Set window in the middle of the screen

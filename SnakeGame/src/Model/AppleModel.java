@@ -5,8 +5,11 @@ import Model.*;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 /**
  * 
  * Class: AppleModel.java
@@ -14,6 +17,9 @@ import Model.*;
  */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 public class AppleModel {
 
 	/**
@@ -23,6 +29,7 @@ public class AppleModel {
 	int appleX = 0;
 	int appleY = 0;
 
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> finishing touches
@@ -40,12 +47,17 @@ public class AppleModel {
 =======
 
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	static final int SCREEN_WIDTH = 600;
 	static final int SCREEN_HEIGHT = 600;
 	Random random = new Random();
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	/**
 	 *  The board is divided into small squares, called units
 	 */
@@ -111,6 +123,7 @@ public class AppleModel {
 	 * 
 	 * Checks if snake head ate apple, and increases body parts and score accordingly
 	 */
+<<<<<<< HEAD
 =======
 	// The board is divided into small squares, called units
 =======
@@ -185,12 +198,15 @@ public class AppleModel {
 	 * Checks if snake head ate apple, and increases body parts and score accordingly
 	 */
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	public void checkApple(int[] x, int[] y, int bodyParts) {
 
 		// Examine coordinates of snake and apple
 		if ((x[0] == appleX) && (y[0] == appleY)) { // GET x y FROM SNAKE MODEL
 			// If apple eaten, increment variables
 			applesEaten++;
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 			Model.snakemodel.setBodyParts(++bodyParts);
@@ -206,10 +222,15 @@ public class AppleModel {
 	
 >>>>>>> Finishes MVC
 =======
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 			Model.snakemodel.setBodyParts(++bodyParts);
 			newApple();
 		}
 	}
 
+<<<<<<< HEAD
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 }

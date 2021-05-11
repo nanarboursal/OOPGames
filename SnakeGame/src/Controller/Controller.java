@@ -5,6 +5,9 @@ import java.util.concurrent.BlockingQueue;
 import Model.KeyDetails;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 import Model.Model;
 import View.GameFrame;
 
@@ -21,6 +24,7 @@ public class Controller {
 	GameFrame view;
 
 	public Controller(BlockingQueue<KeyDetails> queue, Model model, GameFrame view) {
+<<<<<<< HEAD
 =======
 import Model.SnakeGame;
 =======
@@ -46,6 +50,8 @@ public class Controller {
 =======
 	public Controller(BlockingQueue<KeyDetails> queue, Model model, GameFrame view) {
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 		this.queue = queue;
 		this.model = model;
 		this.view = view;
@@ -53,8 +59,11 @@ public class Controller {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 	/**
 	 * Takes events from queue and sets direction
 	 */
@@ -64,6 +73,7 @@ public class Controller {
 			
 			// Take KeyDetails event from queue
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 	public void mainLoop() {
 		while (view.isDisplayable()) {
@@ -71,6 +81,8 @@ public class Controller {
 >>>>>>> Finishes MVC
 =======
 >>>>>>> finishing touches
+=======
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 			try {
 				event = queue.take();
 			} catch (InterruptedException exception) {
@@ -79,6 +91,7 @@ public class Controller {
 			
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			// Set snake direction
 			if(event.getDirection() == 'R') {
 				Model.snakemodel.setDirection('R');
@@ -95,6 +108,9 @@ public class Controller {
 =======
 			// Set snake direction
 >>>>>>> finishing touches
+=======
+			// Set snake direction
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 			if(event.getDirection() == 'R') {
 				Model.snakemodel.setDirection('R');
 			}
@@ -106,11 +122,15 @@ public class Controller {
 				}
 			else if(event.getDirection() == 'D') {
 <<<<<<< HEAD
+<<<<<<< HEAD
 				SnakeGame.snakemodel.setDirection('D');
 >>>>>>> Finishes MVC
 =======
 				Model.snakemodel.setDirection('D');
 >>>>>>> finishing touches
+=======
+				Model.snakemodel.setDirection('D');
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc
 			}
 		}
 	}

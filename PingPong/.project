@@ -1,3 +1,4 @@
+<<<<<<< HEAD:PingPong/.project
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>PingPong</name>
@@ -15,3 +16,22 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
 </projectDescription>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>SnakeGame</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+</projectDescription>
+>>>>>>> 1344c6ce4cc586cdd497bf0cb840403499a6dadc:SnakeGame/.project
