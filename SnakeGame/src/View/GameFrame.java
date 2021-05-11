@@ -70,7 +70,7 @@ public class GameFrame extends JFrame {
 =======
 >>>>>>> finishing touches
 		this.add(panel);
-		this.setTitle("Snake");
+		this.setTitle("Snake Game");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 <<<<<<< HEAD
