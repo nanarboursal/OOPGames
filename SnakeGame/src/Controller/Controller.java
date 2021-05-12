@@ -29,6 +29,7 @@ public class Controller {
 	 * Takes events from queue and sets direction
 	 */
 	public void mainLoop() {
+		System.out.println("mama we made it");
 		while (view.isDisplayable()) {
 			KeyDetails event = null;
 

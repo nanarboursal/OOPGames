@@ -1,8 +1,6 @@
 package Model;
 import javax.swing.Timer;
 
-import View.GameFrame;
-
 /**
  * 
  * Class: Model.java

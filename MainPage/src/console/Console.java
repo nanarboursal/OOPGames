@@ -1,16 +1,19 @@
 package console;
 
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import tetris.*;
-import pong.*;
-import snake.*;
+import pong.PongGame;
+import snake.SnakeGame;
+import tetris.Controller;
+import tetris.KeyPressedMessage;
+import tetris.WindowGame;
 
 
 public class Console extends JFrame {
@@ -45,8 +48,15 @@ public class Console extends JFrame {
 		game1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				TetrisGame tg = new TetrisGame();
-				tg.playTetris();
+//				TetrisGame tg = new TetrisGame();
+//				tg.playTetris();
+				BlockingQueue queue = new LinkedBlockingQueue<KeyPressedMessage>();
+
+				WindowGame window = new WindowGame(queue);
+
+				Controller controller = new Controller(queue, window);
+				System.out.println("hello here");
+				controller.runningLoop();
 			}
 		});
 
