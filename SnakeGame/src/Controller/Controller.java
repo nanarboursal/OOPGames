@@ -22,6 +22,8 @@ public class Controller {
 		this.queue = queue;
 		this.model = model;
 		this.view = view;
+		System.out.println("in controller const");
+
 	}
 
 
@@ -31,9 +33,11 @@ public class Controller {
 	public void mainLoop() {
 		while (view.isDisplayable()) {
 			KeyDetails event = null;
+			System.out.println("queue" + queue);
 
 			try {
 				event = queue.take();
+				System.out.println("event" + event);
 			} catch (InterruptedException exception) {
 				// do nothing
 			}

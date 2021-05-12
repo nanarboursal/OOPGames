@@ -119,8 +119,6 @@ public class SnakeModel {
 			y[i] = y[i - 1];
 		}
 
-		System.out.println(direction);
-
 		// Switch case for all possible directions
 		// Moving the 0th elements which represent the head
 		switch (direction) {
