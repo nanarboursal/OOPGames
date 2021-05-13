@@ -5,7 +5,7 @@ import java.util.*;
 import javax.swing.*;
 
 public class PongGame {
-	public static void playPong() {
+	public static void main(String[] args) {
 		GameFrame frame = new GameFrame();
 	}
 
