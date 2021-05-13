@@ -16,11 +16,7 @@ import View.GameFrame;
 public class SnakeGame {
 
 	public static void main(String[] args) {
+		GameFrame view = new GameFrame();
 
-		BlockingQueue<KeyDetails> queue = new LinkedBlockingQueue<>();
-		Model model = new Model();
-		GameFrame view = new GameFrame(queue, model.applemodel, model.snakemodel);
-		Controller controller = new Controller(queue, model, view);
-		controller.mainLoop();
 	}
 }

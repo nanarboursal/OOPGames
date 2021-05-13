@@ -10,37 +10,27 @@ import Model.AppleModel;
 import Model.KeyDetails;
 import Model.SnakeModel;
 
-public class GameFrame extends JFrame {
+import javax.swing.*;
 
-	/**
-	 * 
-	 * @param queue
-	 * @param applemodel
-	 * @param snakemodel
-	 * 
-	 * Create the JFrame where GamePanel is added
+public class GameFrame extends JFrame{
+
+	/** 
+	 * Constructor
 	 */
-	public GameFrame(BlockingQueue<KeyDetails> queue, AppleModel applemodel, SnakeModel snakemodel) {
 
-		GamePanel panel = new GamePanel(queue,applemodel, snakemodel);
-		JPanel scorePanel = new JPanel();
+	public GameFrame() {
+
+		GamePanel panel = new GamePanel();
 		this.add(panel);
-		this.setTitle("Snake Game");
+		this.setTitle("Snake");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
 
 		// Fit JFrame around all other view components
 		this.pack();
-		this.setLayout(new FlowLayout());
-		
-		// Fit JFrame around all other view components
-		this.pack();
 
-		// Fit JFrame around all other view components
-		this.pack();
-		this.setLayout(new FlowLayout());
 		this.setVisible(true);
-		
+
 		// Set window in the middle of the screen
 		this.setLocationRelativeTo(null);
 	}
