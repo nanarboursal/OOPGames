@@ -15,7 +15,7 @@ import View.GameFrame;
 
 public class SnakeGame {
 
-	public static void playSnake() {
+	public static void main(String[] args) {
 
 		BlockingQueue<KeyDetails> queue = new LinkedBlockingQueue<>();
 		Model model = new Model();
