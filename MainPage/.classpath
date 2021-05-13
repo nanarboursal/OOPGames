@@ -6,8 +6,5 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/PingPong"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/SnakeGame"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/TetrisGame"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
