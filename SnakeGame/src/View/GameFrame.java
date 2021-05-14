@@ -10,8 +10,6 @@ import Model.AppleModel;
 import Model.KeyDetails;
 import Model.SnakeModel;
 
-import View.GamePanel;
-
 public class GameFrame extends JFrame {
 
 	/**
